@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Bienvenidos</h1>
+        
+    <h2>
+        Ingresa las palabras...
+    </h2>
+    <p>
+        Sepáralas por comas.
+    </p>
+
+    <form method="post" action="{% url 'inicio' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ word_form.as_p }}
+        <button type="submit" class="btn btn-primary">Enviar Palabra</button>
+    </form>
+</body>
+</html>
