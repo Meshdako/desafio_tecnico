@@ -1,1 +1,5 @@
+test.py  
+
 /api/migrations
+/api/__pycache__
+/dtRest/__pycache__
