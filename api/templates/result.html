@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+</head>
+<body>
+    <h1>RESULTADO</h1>
+        <h1>
+            [{{ regla.rule_1 }}, {{ regla.rule_2 }}, {{ regla.rule_3 }}, {{ regla.rule_4 }}]
+        </h1>
+
+    {% for word in words %}
+        <h1>
+            ID: {{ word.id }}
+        </h1>
+        <h1>
+            Input: {{ word.input_word }}
+        </h1>
+        <h1>
+            Output: {{ word.output_word }}
+        </h1>
+    {% endfor %}
+</body>
+</html>
