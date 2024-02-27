@@ -4,23 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado</title>
+
+    <link rel="stylesheet" href="/static/index.css">
 </head>
 <body>
-    <h1>RESULTADO</h1>
+    <div class="encabezado">
         <h1>
+            Resultado
+        </h1>
+    </div>
+    <div class="reglas">
+        <h2>
             [{{ regla.rule_1 }}, {{ regla.rule_2 }}, {{ regla.rule_3 }}, {{ regla.rule_4 }}]
-        </h1>
-
+        </h2>
+    </div>
     {% for word in words %}
-        <h1>
-            ID: {{ word.id }}
-        </h1>
-        <h1>
-            Input: {{ word.input_word }}
-        </h1>
-        <h1>
-            Output: {{ word.output_word }}
-        </h1>
+        <div class="salida">
+            <h3 id="input">
+                Input: {{ word.input_word }}
+            </h3>
+            <h3 id="output">
+                Output: {{ word.output_word }}
+            </h3>
+        </div>
     {% endfor %}
+
+    <a href="/api/v1/inicio" style="margin: 15px; padding: 10px;">
+        <button type="button" class="btn btn-primary">
+            ¿Volver?
+        </button>
+    </a>
 </body>
 </html>
