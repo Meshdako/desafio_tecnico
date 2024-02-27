@@ -28,7 +28,8 @@ def Inicio(request):
             
             nuevasReglas, nuevasPalabras = pluralizador(words)
             
-            print (nuevasReglas, nuevasPalabras)
+            print (nuevasReglas)
+            print (nuevasPalabras)
             
             uno, dos, tres, cuatro = nuevasReglas
             
@@ -45,17 +46,21 @@ def Inicio(request):
                 word = Word.objects.create(
                     input_word = words[i],
                     output_word = nuevasPalabras[i],
-                    the_rule = i,
                 )
                 ids.append(word.pk)
         print (ids)
-        return redirect('resultado', rule.pk)
+        return Resultado(request, id = rule.pk, ini = ids[0], fin = ids[len(ids) - 1])
     
     return render(request=request, template_name="index.html", context={'reglas': reglas, 'word_form': word_form})
 
-def Resultado(request, id):
+def Resultado(request, id, ini, fin):
     regla = Rules.objects.get(id = id)
-    words = Word.objects.all()
+    
+    words = []
+    i = ini
+    while i < fin + 1:
+        words.append(Word.objects.get(id = i))
+        i += 1
 
     return render(request=request, template_name="result.html", context={'regla': regla, 'words': words})
 
